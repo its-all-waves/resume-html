@@ -1,0 +1,176 @@
+:root {
+  --accent-1: rgb(124, 54, 237);
+  --accent-2: rgb(18, 185, 129);
+}
+
+@font-face {
+  font-family: "SF Mono Regular";
+  src:
+    local("SF Mono Regular"),
+    url("./fonts/SFMonoLigaturized-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SF Mono Bold";
+  src:
+    local("SF Mono Bold"),
+    url("./fonts/SFMonoLigaturized-bold.ttf");
+}
+
+h1,
+h2 {
+  color: var(--accent-1);
+}
+
+h1,
+h2,
+h3,
+h4,
+strong {
+  font-family: "SF Mono Bold";
+}
+
+a {
+  color: var(--accent-2);
+  /* font-weight: bolder; */
+  /* TODO */
+}
+
+:root {
+  padding-inline: 2rem;
+  padding-top: 2rem;
+}
+
+body {
+  font-family: "SF Mono Regular";
+  font-size: 15px;
+  position: relative;
+  max-width: 100ch;
+  margin: 0 auto;
+}
+
+aside {
+  text-align: right;
+  width: 50ch;
+}
+
+section,
+header {
+  margin-bottom: 2.5rem;
+}
+
+header {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+header .name-role {
+  h1 {
+    margin-block: 0;
+  }
+
+  h2 {
+    margin-block: 1rem;
+  }
+
+  p {
+    margin-block: 0;
+  }
+}
+
+p,
+ul {
+  line-height: 1.5rem;
+}
+
+ul {
+  padding-left: 2rem;
+}
+
+#name {
+  color: black;
+  font-size: 2rem;
+}
+
+#phone {
+  display: none;
+}
+
+#objective {
+  border: 0.2rem solid var(--accent-2);
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+}
+
+#jumpto {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 70ch;
+
+  p {
+    margin: 0;
+    margin-bottom: 0.7rem;
+  }
+}
+
+#jumpto ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1ch 2ch;
+  padding: 0;
+  text-wrap: nowrap;
+  text-align: center;
+  list-style-type: "";
+  /* li:first-of-type { */
+  /* list-style: none; */
+  /* } */
+}
+
+@media print {
+  @page {
+    size: 8in 11.5in;
+    margin-block: 0.8in;
+    margin-inline: 0.5in;
+
+    /* page numbers */
+    @bottom-right {
+      content: counter(page) " of " counter(pages);
+    }
+  }
+
+  :root {
+    padding: unset;
+    print-color-adjust: exact;
+  }
+
+  body {
+    margin: 0;
+    font-size: 12px;
+    max-width: unset;
+    padding-top: unset;
+  }
+
+  header {
+    /* bc we're adding the phone number on print */
+    align-items: center;
+  }
+
+  #jumpto {
+    /* hide table on contents for printing */
+    display: none;
+  }
+
+  #phone {
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid-page;
+  }
+}

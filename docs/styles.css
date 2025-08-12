@@ -101,7 +101,8 @@ ul {
   border: 0.2rem solid var(--accent-2);
   border-radius: 0.6rem;
   padding: 0.6rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 #jumpto {
@@ -148,14 +149,13 @@ ul {
 
   body {
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
     max-width: unset;
     padding-top: unset;
   }
 
-  header {
-    /* bc we're adding the phone number on print */
-    align-items: center;
+  #objective {
+    font-size: 15px;
   }
 
   #jumpto {

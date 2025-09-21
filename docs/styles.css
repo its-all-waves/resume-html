@@ -50,8 +50,6 @@ b {
 
 a {
   color: var(--accent-2);
-  /* font-weight: bolder; */
-  /* TODO */
 }
 
 :root {
@@ -71,11 +69,11 @@ body {
 }
 
 body.page {
-  width: 8.5in;
+  max-width: 8.5in;
   padding-inline: 0.5in;
-  height: 11in;
-  padding-block: 0.4in;
-  border: 1px dotted red;
+  padding-block: 0.5in;
+  border: 2px solid var(--accent-2);
+  border-radius: 0.3rem;
 }
 
 header {
@@ -85,28 +83,16 @@ header {
   justify-content: space-between;
 }
 
-header .name-role {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  h1 {
-    margin-block: 0;
-  }
-
-  h2 {
-    margin-block: 0rem;
-  }
-
-  p {
-    margin-block: 0;
-  }
+#role,
+h2 {
+  text-shadow: 0.02rem 0.02rem 0 black;
 }
 
 header .aside {
   * {
     margin: 0;
     padding: 0;
+    white-space: nowrap;
   }
 }
 
@@ -122,6 +108,10 @@ ul {
 #name {
   color: black;
   font-size: 2rem;
+}
+
+#role {
+  white-space: nowrap;
 }
 
 #phone {
@@ -169,25 +159,23 @@ i {
 }
 
 @media print {
+  body.page {
+    width: unset;
+    height: unset;
+    border: unset;
+    margin: 0;
+    padding: 0;
+  }
+
   @page {
     size: 8in 11.5in;
-    margin-block: 0.8in;
+    margin-top: 0.7in;
     margin-inline: 0.5in;
-
-    /* page numbers */
-    @bottom-right {
-      content: counter(page) " of " counter(pages);
-    }
   }
 
   :root {
     padding: unset;
     print-color-adjust: exact;
-  }
-
-  #jumpto {
-    /* hide table on contents for printing */
-    display: none;
   }
 
   #phone {
